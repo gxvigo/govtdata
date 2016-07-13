@@ -1,0 +1,130 @@
+paths:
+  /rates_instalment_due_dates:
+    get:
+      tags:
+        - rates_instalment_due_dates
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: rates_instalment_due_dates.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/rates_instalment_due_dates'
+      deprecated: false
+  /property_rates_valuations:
+    get:
+      tags:
+        - property_rates_valuations
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: property_rates_valuations.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/property_rates_valuations'
+      deprecated: false
+definitions:
+  rates_instalment_due_dates:
+    properties:
+      instalment:
+        type: number
+        format: double
+      paymentDueDate:
+        type: string
+        format: date
+    required:
+      - instalment
+      - paymentDueDate
+    additionalProperties: false
+  property_rates_valuations:
+    properties:
+      address:
+        type: string
+      assessmentNumber:
+        type: number
+        format: double
+      certifiedOfTitleNumber:
+        type: string
+      clientId:
+        type: string
+      landArea:
+        type: number
+        format: double
+      lastestCapitalValue:
+        type: string
+      latestImrovementValue:
+        type: string
+      latestLandValue:
+        type: string
+      valuationAsAtDate:
+        type: string
+    required:
+      - address
+      - assessmentNumber
+      - certifiedOfTitleNumber
+      - clientId
+      - landArea
+      - lastestCapitalValue
+      - latestImrovementValue
+      - latestLandValue
+      - valuationAsAtDate
+    additionalProperties: false
+swagger: '2.0'
+info:
+  x-ibm-name: govtdata
+  version: 1.0.0
+  title: govtdata
+schemes:
+  - https
+host: $(catalog.host)
+basePath: /api
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+  clientSecretHeader:
+    in: header
+    name: X-IBM-Client-Secret
+    type: apiKey
+security:
+  - clientIdHeader: []
+    clientSecretHeader: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  catalogs:
+    apic-dev:
+      properties:
+        runtime-url: $(TARGET_URL)
+    sb:
+      properties:
+        runtime-url: 'http://localhost:4001'
+  assembly:
+    execute:
+      - invoke:
+          target-url: $(runtime-url)$(request.path)$(request.search)

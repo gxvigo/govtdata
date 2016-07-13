@@ -1,0 +1,15 @@
+{
+  "mysql_local": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "database": "demo",
+    "password": "password",
+    "name": "mysql_local",
+    "connector": "mysql",
+    "user": "root"
+  },
+  "memory": {
+    "name": "memory",
+    "connector": "memory"
+  }
+}

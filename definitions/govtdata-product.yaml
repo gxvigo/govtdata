@@ -1,0 +1,25 @@
+product: '1.0.0'
+
+info:
+  name: govtdata
+  title: govtdata
+  version: 1.0.0
+
+apis:
+  'govtdata':
+    $ref: govtdata.yaml
+
+visibility:
+  view:
+    type: public
+  subscribe:
+    type: authenticated
+
+plans:
+  default:
+    title: Default Plan
+    description: Default Plan
+    approval: false
+    rate-limit:
+      value: 100/hour
+      hard-limit: false

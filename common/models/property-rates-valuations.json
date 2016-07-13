@@ -1,0 +1,107 @@
+{
+  "name": "property_rates_valuations",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "address": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "columnName": "address",
+        "dataType": "varchar",
+        "dataLength": 45,
+        "nullable": "N"
+      }
+    },
+    "assessmentNumber": {
+      "type": "number",
+      "required": true,
+      "mysql": {
+        "columnName": "assessment_number",
+        "dataType": "int",
+        "dataLength": 11,
+        "nullable": "N"
+      }
+    },
+    "certifiedOfTitleNumber": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "columnName": "certified_of_title_number",
+        "dataType": "varchar",
+        "dataLength": 45,
+        "nullable": "N"
+      }
+    },
+    "clientId": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "mysql": {
+        "columnName": "client_id",
+        "dataType": "varchar",
+        "dataLength": 10,
+        "nullable": "N"
+      }
+    },
+    "landArea": {
+      "type": "number",
+      "required": true,
+      "mysql": {
+        "columnName": "land_area",
+        "dataType": "int",
+        "dataLength": 11,
+        "nullable": "N"
+      }
+    },
+    "lastestCapitalValue": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "columnName": "lastest_capital_value",
+        "dataType": "decimal",
+        "precision": 12,
+        "scale": 2,
+        "nullable": "N"
+      }
+    },
+    "latestImrovementValue": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "columnName": "latest_imrovement_value",
+        "dataType": "decimal",
+        "precision": 12,
+        "scale": 2,
+        "nullable": "N"
+      }
+    },
+    "latestLandValue": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "columnName": "latest_land_value",
+        "dataType": "decimal",
+        "precision": 12,
+        "scale": 2,
+        "nullable": "N"
+      }
+    },
+    "valuationAsAtDate": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "columnName": "valuation_as_at_date",
+        "dataType": "date",
+        "nullable": "N"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
